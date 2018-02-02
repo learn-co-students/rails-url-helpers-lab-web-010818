@@ -1,0 +1,18 @@
+<h1><%= @student.to_s %> is now
+  <% if @student.active %>
+    active.</h1>
+    <% else %>
+     inactive.</h1>
+     <% end %>
+<br>
+<h2>Would you like to change the status?</h2>
+<br>
+<form action="activate" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="token_value">
+<% if @student.active %>
+  <input type="submit" name="activate" value="deactivate">
+<% else %>
+  <input type="submit" name="activate" value="activate">
+<% end %>
+</form>
