@@ -5,12 +5,6 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
-  def activate_student_path
-    @student = Student.find(params[:id])
-    @student.toggle_active!
-  end
-
-
   def activate
     @student = Student.find{params[:id]}
     @student.active = !@student.active
@@ -18,7 +12,7 @@ class StudentsController < ApplicationController
     redirect_to student_path(@student)
   end
 
-  def show
+  # def show
      # @student = Student.find(params[:id])
     # student_path(@student)
     # if @student.active == 0
@@ -26,7 +20,7 @@ class StudentsController < ApplicationController
     # else
     #     "This student is currently active."
     # end
-  end
+  # end
 
   private
 
